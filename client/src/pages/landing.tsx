@@ -33,8 +33,8 @@ function Navbar() {
               alt="MediaCore Logo"
               className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary object-cover"
             />
-            <span className="text-lg md:text-xl font-bold text-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              MediaCore<span className="text-primary">.in</span>
+            <span className="text-lg md:text-xl font-bold text-white" style={{ fontFamily: "'Poppins', sans-serif"}}>
+              MediaCore<span className="text-primary" style={{color: '#5ec26a'}}>.in</span>
             </span>
           </div>
           <a href={APP_URL} target="_blank" rel="noopener noreferrer">
@@ -697,9 +697,9 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-gray-400 hover:text-pink-500 transition-colors p-2 rounded-full hover:bg-white/5"
+              className="text-gray-400 hover:text-orange-500 transition-colors p-2 rounded-full hover:bg-white/5"
             >
-              <InstagramIcon className="w-6 h-6" />
+              <InstagramIcon className="w-10 h-10" />
             </a>
 
             <a
@@ -709,7 +709,7 @@ function Footer() {
               aria-label="X"
               className="text-gray-400 hover:text-blue-400 transition-colors p-2 rounded-full hover:bg-white/5"
             >
-              <TwitterXIcon className="w-6 h-6" />
+              <TwitterXIcon className="w-10 h-10" />
             </a>
 
             <a
@@ -719,7 +719,7 @@ function Footer() {
               aria-label="YouTube"
               className="text-gray-400 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-white/5"
             >
-              <YoutubeIcon className="w-6 h-6" />
+              <YoutubeIcon className="w-10 h-10" />
             </a>
           </div>
         </div>
