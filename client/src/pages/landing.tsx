@@ -19,9 +19,9 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { SiAppstore, SiGoogleplay } from "react-icons/si";
+import { InstagramIcon, TwitterXIcon, YoutubeIcon } from "../components/SocialIcons";
 
 const APP_URL = "https://app.mediacore.in";
-
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-dark">
@@ -41,12 +41,29 @@ function Navbar() {
             <Button
               variant="default"
               size="default"
-              className="rounded-full"
               data-testid="button-navbar-cta"
+              className="
+    group
+    rounded-full
+    flex items-center
+    transition-all
+    duration-200
+    hover:bg-white/10
+  "
             >
               <span className="hidden sm:inline">Open App</span>
               <span className="sm:hidden">App</span>
-              <ArrowRight className="w-4 h-4 ml-1" />
+
+              <ArrowRight
+                className="
+      w-4 h-4
+      ml-1
+      transition-transform
+      duration-200
+      ease-out
+      group-hover:translate-x-1
+    "
+              />
             </Button>
           </a>
         </div>
@@ -59,7 +76,7 @@ function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0B0F14] to-[#0F1623]">
       <div className="absolute inset-0 gradient-overlay" />
-      
+
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl" />
@@ -106,16 +123,47 @@ function HeroSection() {
             <a href={APP_URL} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
-                className="rounded-full px-8 py-6 text-lg font-semibold"
                 data-testid="button-hero-cta"
+                className="
+    group
+    rounded-full
+    px-8 py-6
+    text-lg font-semibold
+    flex items-center
+    gap-2
+    transition-all
+    duration-300
+  "
               >
-                <Play className="w-5 h-5 mr-2 fill-current" />
-                Go to Media Player
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <Play className="w-5 h-5 fill-current" />
+
+                <span>Go to Media Player</span>
+
+                <ArrowRight
+                  className="
+      w-5 h-5
+      transition-all
+      duration-300
+      group-hover:translate-x-1.5
+      group-hover:opacity-100
+      opacity-80
+    "
+                />
               </Button>
             </a>
-            <Badge variant="outline" className="glass text-white border-white/20 px-4 py-2">
-              <Globe className="w-4 h-4 mr-2 text-green-400" />
+            <Badge
+              variant="outline"
+              className="glass text-white border-white/20 px-4 py-2 flex items-center"
+            >
+              <span className="relative flex h-3 w-3 mr-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60 animate-ping" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500" />
+              </span>
+              {/* Green dot fade in/out
+              <span className="relative flex h-3 w-3 mr-2">
+                <span className="absolute h-3 w-3 rounded-full bg-green-400 animate-[pulse_2s_ease-in-out_infinite]" />
+              </span>
+              */}
               Web App Live Now
             </Badge>
           </div>
@@ -130,12 +178,12 @@ function HeroSection() {
           </div>
         </motion.div>
       </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce " style={{marginBottom: '-2%'}}>
+      {/* Add class name to: "animate-bounce" to animate*/}
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" style={{marginBottom: '-4%'}}> 
         <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
           <div className="w-1.5 h-3 bg-white/50 rounded-full" />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
@@ -179,9 +227,34 @@ function WhatIsSection() {
               ))}
             </ul>
             <a href={APP_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="default" size="lg" className="rounded-full mt-4" data-testid="button-about-cta">
-                Explore MediaCore
-                <ArrowRight className="w-4 h-4 ml-2" />
+              <Button
+                variant="default"
+                size="lg"
+                data-testid="button-about-cta"
+                className="
+    group
+    rounded-full
+    mt-4
+    flex items-center
+    gap-2
+    transition-all
+    duration-300
+    hover:-translate-y-0.5
+    hover:shadow-md
+    hover:shadow-white/10
+  "
+              >
+                <span>Explore MediaCore</span>
+
+                <ArrowRight
+                  className="
+      w-4 h-4
+      transition-transform
+      duration-300
+      ease-out
+      group-hover:translate-x-1.5
+    "
+                />
               </Button>
             </a>
           </motion.div>
@@ -428,6 +501,10 @@ function AvailabilitySection() {
               <Globe className="w-8 h-8 text-green-400" />
             </div>
             <Badge variant="secondary" className="bg-green-400/20 text-green-400 border-green-400/30 mb-4">
+              <span className="relative flex h-3 w-3 mr-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60 animate-ping" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500" />
+              </span>
               Live Now
             </Badge>
             <h3 className="text-xl font-semibold text-white mb-2">Web App</h3>
@@ -435,9 +512,31 @@ function AvailabilitySection() {
               Access MediaCore instantly from any modern browser. No downloads required.
             </p>
             <a href={APP_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="default" className="rounded-full" data-testid="button-web-app">
-                Open Web App
-                <ArrowRight className="w-4 h-4 ml-2" />
+              <Button
+                style={{marginLeft: '4.5rem'}}
+                variant="default"
+                data-testid="button-web-app"
+                className="
+    group
+    rounded-full
+    flex items-center
+    gap-1.5
+    transition-all
+    duration-300
+    hover:bg-white/10
+  "
+              >
+                <span>Open Web App</span>
+
+                <ArrowRight
+                  className="
+      w-4 h-4
+      transition-transform
+      duration-300
+      ease-out
+      group-hover:translate-x-1.5
+    "
+                />
               </Button>
             </a>
           </motion.div>
@@ -497,7 +596,7 @@ function CTASection() {
   return (
     <section className="py-24 md:py-40 relative overflow-hidden bg-gradient-to-b from-[#0F1623] to-[#0B0F14]">
       <div className="absolute inset-0 gradient-overlay opacity-40" />
-      
+
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-blue-500/8 rounded-full blur-3xl" />
@@ -525,12 +624,35 @@ function CTASection() {
             <a href={APP_URL} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
-                className="rounded-full px-10 py-6 text-lg font-semibold"
                 data-testid="button-final-cta"
+                className="
+    group
+    rounded-full
+    px-10 py-6
+    text-lg font-semibold
+    flex items-center
+    gap-2
+    transition-all
+    duration-300
+    hover:shadow-lg
+    hover:shadow-green-500/20
+    hover:-translate-y-0.5
+  "
               >
-                <Play className="w-5 h-5 mr-2 fill-current" />
-                Go to MediaCore App
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <Play className="w-5 h-5 fill-current" />
+
+                <span>Go to MediaCore App</span>
+
+                <ArrowRight
+                  className="
+      w-5 h-5
+      transition-all
+      duration-300
+      opacity-80
+      group-hover:translate-x-2
+      group-hover:opacity-100
+    "
+                />
               </Button>
             </a>
           </div>
@@ -545,36 +667,169 @@ function CTASection() {
 
 function Footer() {
   return (
-    <footer className="py-12 bg-[#0B0F14] border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
+    <footer className="bg-[#0B0F14] border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+
+          {/* Brand */}
+          <div className="flex items-center justify-center md:justify-start gap-3">
             <img
               src="/logo512.png"
               alt="MediaCore Logo"
-              className="w-8 h-8 rounded-lg bg-green-500 object-cover"
+              className="w-9 h-9 rounded-lg bg-green-500 object-cover"
             />
-            <span className="text-lg font-bold text-white">
+            <span className="text-lg font-semibold text-white tracking-wide">
               MediaCore<span className="text-green-500">.in</span>
             </span>
           </div>
-          <p className="text-gray-500 text-sm text-center md:text-left">
-            Spiritual and wellness media streaming. Free forever.
+
+          {/* Tagline */}
+          <p className="text-gray-400 text-sm text-center leading-relaxed">
+            Spiritual and wellness media streaming. Free to use.
           </p>
-          <a href={APP_URL} target="_blank" rel="noopener noreferrer">
-            <Button variant="glass" size="sm" className="text-gray-300" data-testid="button-footer-cta">
-              Open App
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Button>
-          </a>
+
+          {/* Social Icons */}
+          <div className="flex items-center justify-center md:justify-end gap-5">
+            <a
+              href="https://www.instagram.com/mediacore_app"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-gray-400 hover:text-pink-500 transition-colors p-2 rounded-full hover:bg-white/5"
+            >
+              <InstagramIcon className="w-6 h-6" />
+            </a>
+
+            <a
+              href="https://x.com/mediacore_app"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X"
+              className="text-gray-400 hover:text-blue-400 transition-colors p-2 rounded-full hover:bg-white/5"
+            >
+              <TwitterXIcon className="w-6 h-6" />
+            </a>
+
+            <a
+              href="https://www.youtube.com/channel/UCzWTJPHliULme0kC2reNhLg"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="text-gray-400 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-white/5"
+            >
+              <YoutubeIcon className="w-6 h-6" />
+            </a>
+          </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-white/5 text-center">
-          <p className="text-gray-600 text-xs">
+
+        {/* Bottom Section */}
+        <div className="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+
+          <p className="text-center md:text-left">
             © {new Date().getFullYear()} MediaCore. Built with love for spiritual seekers.
           </p>
+
+          <a
+            href="mailto:contact@mediacore.in"
+            className="hover:text-green-500 transition-colors"
+          >
+            contact@mediacore.in
+          </a>
         </div>
       </div>
     </footer>
+  );
+}
+
+function IframeApp() {
+  return (
+    <section className="hidden lg:block relative py-24 md:py-40 bg-gradient-to-b from-[#0B0F14] to-[#0F1623] overflow-hidden">
+      <div className="absolute -top-20 -left-20 w-[600px] h-[600px] rounded-full bg-purple-500/10 blur-3xl" />
+      <div className="absolute -bottom-20 -right-20 w-[700px] h-[700px] rounded-full bg-blue-500/10 blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-testid="section-live-preview">
+        <div className="mb-12 text-center">
+          <Badge variant="secondary" className="bg-purple-500/20 text-purple-300 border-purple-500/30 mb-4">
+            <Sparkles className="w-4 h-4 mr-1.5" />
+            Live Preview
+          </Badge>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            See MediaCore In Action
+          </h2>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto mt-4">
+            Explore a real, distraction-free media experience. This preview shows the actual web app — optimized for clarity, with smooth playback, live transcription, and a calm, focused interface.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-12 gap-10 items-center">
+          {/* Copy */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="col-span-5"
+          >
+            <div className="glass-card rounded-2xl p-8">
+              <h3 className="text-2xl font-semibold text-white mb-4">What you can try</h3>
+              <ul className="space-y-4">
+                {[
+                  'Click anywhere in the transcript to seek instantly',
+                  'Toggle captions to follow along with teachings',
+                  'Switch between audio and video where available',
+                  'Add items to favorites to revisit sessions later',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 text-green-400" />
+                    </div>
+                    <span className="text-gray-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  data-testid="button-preview-cta"
+                  className="group mt-6 rounded-full flex items-center gap-2"
+                >
+                  <Play className="w-5 h-5 fill-current" />
+                  <span>Open Full Web App</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Device preview */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="col-span-7 flex justify-center"
+          >
+            <div className="relative">
+              <div className="absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-green-500/20 via-purple-500/10 to-blue-500/20 blur-2xl" />
+              <div
+                className="relative w-[400px] h-[820px] rounded-[2.5rem] border-[10px] border-black bg-black shadow-[0_25px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+                data-testid="preview-device"
+              >
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full z-10" />
+                <iframe
+                  src={APP_URL}
+                  title="MediaCore Live Preview"
+                  className="w-full h-full border-none rounded-[2rem]"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -586,6 +841,7 @@ export default function LandingPage() {
         <HeroSection />
         <WhatIsSection />
         <FeaturesSection />
+        <IframeApp />
         <WhySection />
         <AvailabilitySection />
         <CTASection />
