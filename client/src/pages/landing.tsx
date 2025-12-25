@@ -731,12 +731,16 @@ function Footer() {
             © {new Date().getFullYear()} MediaCore. Built with love for spiritual seekers.
           </p>
 
-          <a
-            href="mailto:contact@mediacore.in"
-            className="hover:text-green-500 transition-colors"
-          >
-            contact@mediacore.in
-          </a>
+          <div className="flex items-center gap-5">
+            <a href="/terms" className="hover:text-green-500 transition-colors">Terms of Service</a>
+            <a href="/privacy" className="hover:text-green-500 transition-colors">Privacy Policy</a>
+            <a
+              href="mailto:contact@mediacore.in"
+              className="hover:text-green-500 transition-colors"
+            >
+              contact@mediacore.in
+            </a>
+          </div>
         </div>
       </div>
     </footer>
