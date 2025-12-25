@@ -669,6 +669,14 @@ function Footer() {
   return (
     <footer className="bg-[#0B0F14] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Legal Links Section - Visible for crawlers */}
+        <div className="mb-8 pb-8 border-b border-white/5">
+          <p className="text-xs text-gray-500 mb-3">Legal</p>
+          <div className="flex flex-wrap gap-4 text-xs">
+            <a href="/privacy" className="text-gray-300 hover:text-green-500 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="text-gray-300 hover:text-green-500 transition-colors">Terms of Service</a>
+          </div>
+        </div>
 
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
@@ -725,21 +733,24 @@ function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="mt-10 pt-6 border-t border-white/5">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <p className="text-center md:text-left">
+              © {new Date().getFullYear()} MediaCore. Built with love for spiritual seekers.
+            </p>
 
-          <p className="text-center md:text-left">
-            © {new Date().getFullYear()} MediaCore. Built with love for spiritual seekers.
-          </p>
-
-          <div className="flex items-center gap-5">
-            <a href="/terms" className="hover:text-green-500 transition-colors">Terms of Service</a>
-            <a href="/privacy" className="hover:text-green-500 transition-colors">Privacy Policy</a>
-            <a
-              href="mailto:contact@mediacore.in"
-              className="hover:text-green-500 transition-colors"
-            >
-              contact@mediacore.in
-            </a>
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-4">
+              <a href="/privacy" className="text-gray-400 hover:text-green-500 transition-colors whitespace-nowrap">Privacy Policy</a>
+              <span className="text-gray-600">•</span>
+              <a href="/terms" className="text-gray-400 hover:text-green-500 transition-colors whitespace-nowrap">Terms of Service</a>
+              <span className="text-gray-600">•</span>
+              <a
+                href="mailto:contact@mediacore.in"
+                className="text-gray-400 hover:text-green-500 transition-colors whitespace-nowrap"
+              >
+                contact@mediacore.in
+              </a>
+            </div>
           </div>
         </div>
       </div>
