@@ -22,6 +22,13 @@
     <link rel="termsofservice" href="/terms" />
   </head>
   <body>
+    <!-- Visible legal links for non-JS crawlers and users -->
+    <div id="legal-links"
+         style="position:fixed; left:16px; bottom:12px; z-index:1000; font-size:12px; opacity:0.85;">
+      <a href="/privacy" style="color:#10B981; text-decoration:none;">Privacy Policy</a>
+      <span style="color:#6b7280; margin:0 6px;">|</span>
+      <a href="/terms" style="color:#10B981; text-decoration:none;">Terms of Service</a>
+    </div>
     <!-- Legal links for search engine crawlers (non-JS visible links) -->
     <noscript>
       <div style="padding:20px; text-align:center; background:#0B0F14; color:#fff; border-bottom:1px solid #fff5;">
