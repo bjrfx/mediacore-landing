@@ -91,8 +91,9 @@ export default function PrivacyPolicyPage() {
                     as secure hashes.
                   </li>
                   <li>
-                    <strong>Authentication Tokens:</strong> Access and refresh tokens (JWT). The frontend stores
-                    tokens in localStorage; the backend stores refresh tokens for session management.
+                    <strong>Authentication Tokens:</strong> Access and refresh tokens (JWT). On web, tokens may be stored
+                    in localStorage; the backend stores refresh tokens for session management. On iOS/Android, sensitive
+                    tokens are stored securely on‑device (e.g., Expo SecureStore).
                   </li>
                   <li>
                     <strong>Usage & Analytics Data:</strong> Request and usage logs, which may include IP address,
@@ -118,11 +119,26 @@ export default function PrivacyPolicyPage() {
                     <strong>Cookies:</strong> We primarily rely on JWT tokens in localStorage. Limited cookies may be
                     used for security, rate‑limiting, or preference storage.
                   </li>
+                  <li>
+                    <strong>Mobile App Preferences (On‑Device Only):</strong> Non‑sensitive preferences (liked songs,
+                    playback history, queue, playback rate, repeat/shuffle state) are stored locally on your device
+                    using AsyncStorage and are not sent to the backend.
+                  </li>
+                  <li>
+                    <strong>Device and Network Data:</strong> Standard server logs (e.g., IP address, request headers,
+                    basic device/network information inferred from requests) may be recorded by the backend for security
+                    and operational purposes. The mobile app does not actively collect device identifiers beyond network needs.
+                  </li>
+                  <li>
+                    <strong>Google Sign‑In (Mobile):</strong> If you sign in with Google on mobile, the app obtains a Google
+                    ID token and sends it to the backend for verification. The backend may create or update your account based
+                    on Google profile details.
+                  </li>
                 </ul>
 
                 <h2 id="how-we-use">How We Use Information</h2>
                 <ul>
-                  <li><strong>Provide & Maintain the Service:</strong> Authenticate users, serve media, enforce subscription tiers and playback limits.</li>
+                  <li><strong>Provide & Maintain the Service:</strong> Authenticate users, serve media, enforce subscription tiers and playback limits, and maintain playback preferences and queues.</li>
                   <li><strong>Security & Abuse Prevention:</strong> Verify identities, detect fraud/abuse, and protect accounts and infrastructure.</li>
                   <li><strong>Analytics & Improvements:</strong> Measure usage, performance, and reliability to improve features and UI.</li>
                   <li><strong>Communications:</strong> Send transactional messages and service notifications.</li>
@@ -141,13 +157,16 @@ export default function PrivacyPolicyPage() {
                   <li><strong>Authentication Providers:</strong> Google OAuth (if you choose to sign in with Google) to verify tokens and link accounts.</li>
                   <li><strong>Legal & Safety:</strong> Authorities or third parties when required by law or to protect rights, safety, and security.</li>
                   <li><strong>Business Transfers:</strong> In connection with mergers, acquisitions, or asset transfers, subject to continued protections.</li>
+                  <li><strong>No Sale of Personal Data:</strong> We do not sell your personal data.</li>
                 </ul>
 
                 <h2 id="retention">Data Retention</h2>
                 <ul>
-                  <li><strong>Tokens:</strong> Access tokens are short‑lived; refresh tokens typically expire in ~7 days. Expired/invalid tokens may be purged.</li>
+                  <li><strong>Tokens:</strong> Access tokens are short‑lived (~15 minutes); refresh tokens typically expire in ~7 days and may be invalidated on logout or security events. Expired/invalid tokens may be purged.</li>
                   <li><strong>Logs & Analytics:</strong> Retained for a period necessary for security, debugging, and analytics (e.g., 90–365 days).</li>
                   <li><strong>Content & Accounts:</strong> Retained while your account is active or as required by law.</li>
+                  <li><strong>On‑Device Preferences:</strong> Stored until you clear app data, uninstall the app, or reset preferences within the app.</li>
+                  <li><strong>Account Records:</strong> Maintained for as long as your account is active and for a reasonable time after deletion to comply with legal obligations and resolve disputes.</li>
                 </ul>
                 <p>
                   You can clear local cached data from the app (Settings → Clear Data), and request account deletion as described below.
@@ -169,6 +188,16 @@ export default function PrivacyPolicyPage() {
                 <p>
                   We use technical and organizational measures (e.g., hashed passwords, token verification, restricted database access)
                   to protect information. No system is 100% secure; please keep your credentials safe.
+                </p>
+                <ul>
+                  <li><strong>Secure Storage (Mobile):</strong> Sensitive tokens are stored with on‑device secure storage (e.g., Expo SecureStore).</li>
+                  <li><strong>Transport Security:</strong> All clients communicate with the backend over HTTPS.</li>
+                  <li><strong>Short‑Lived Tokens:</strong> Access tokens are short‑lived, and refresh tokens rotate upon refresh to reduce risk.</li>
+                  <li><strong>Least Privilege:</strong> Admin‑only endpoints are protected by role checks on the backend.</li>
+                </ul>
+                <p>
+                  <strong>Permissions (Mobile):</strong> Background audio playback may be requested to allow uninterrupted playback. The app does not request
+                  access to location, camera, or contacts. Push notifications are not implemented in the current mobile build.
                 </p>
 
                 <h2 id="children">Children’s Privacy</h2>
